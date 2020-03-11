@@ -174,21 +174,6 @@ public class GUI extends JFrame implements ActionListener {
 
         @Override
         public void mousePressed(MouseEvent e) {
-//            mouseX = e.getX();
-//            mouseY = e.getY();
-//            if(inBoxX() != -1 && inBoxY() != -1){
-//                if(count == 1) {
-//                    state[inBoxY()][inBoxX()] = 1;
-//                    startX = inBoxY();
-//                    startY = inBoxX();
-//                } else if ( count == 2){
-//                    state[inBoxY()][inBoxX()] = 2;
-//                } else if ( count > 2){
-//                    state[inBoxY()][inBoxX()] = 3;
-//                }
-//            } else {
-//                System.out.println("The mouse isn't inside of a box");
-//            }
         }
 
         @Override

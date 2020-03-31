@@ -17,9 +17,8 @@ public class GUI extends JFrame implements ActionListener {
 
     private int mouseX;
     private int mouseY;
-    private int[][] state = makeArray(new int[30][63]);
+    private int[][] state = new int[30][63];
     private int count = 0;
-    private JButton bfsButton;
     private int startX;
     private int startY;
 
@@ -33,7 +32,10 @@ public class GUI extends JFrame implements ActionListener {
         this.setResizable(true);
         Board board = new Board();
         this.setContentPane(board);
-        bfsButton = new JButton("Start BFS");
+        JLabel jlabel = new JLabel("1st click - Start Node. 2nd Click - End Node. 3rd Click and Greater - Barriers. Then hit 'Start BFS'");
+        jlabel.setFont(new Font("Verdana", Font.PLAIN,16));
+        this.add(jlabel);
+        JButton bfsButton = new JButton("Start BFS");
         this.add(bfsButton);
         bfsButton.addActionListener(this);
         setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -174,6 +176,21 @@ public class GUI extends JFrame implements ActionListener {
 
         @Override
         public void mousePressed(MouseEvent e) {
+//            mouseX = e.getX();
+//            mouseY = e.getY();
+//            if(inBoxX() != -1 && inBoxY() != -1){
+//                if(count == 1) {
+//                    state[inBoxY()][inBoxX()] = 1;
+//                    startX = inBoxY();
+//                    startY = inBoxX();
+//                } else if ( count == 2){
+//                    state[inBoxY()][inBoxX()] = 2;
+//                } else if ( count > 2){
+//                    state[inBoxY()][inBoxX()] = 3;
+//                }
+//            } else {
+//                System.out.println("The mouse isn't inside of a box");
+//            }
         }
 
         @Override
@@ -218,17 +235,5 @@ public class GUI extends JFrame implements ActionListener {
             }
         }
         return -1;
-    }
-
-    /**
-     * Creates the 'state' array, which holds integer values corresponding to the different kinds of nodes.
-     */
-    public int[][] makeArray(int[][] arr) {
-        for (int i = 0; i < 63; i++) {
-            for (int j = 0; j < 30; j++) {
-                arr[j][i] = 0;
-            }
-        }
-        return arr;
     }
 }
